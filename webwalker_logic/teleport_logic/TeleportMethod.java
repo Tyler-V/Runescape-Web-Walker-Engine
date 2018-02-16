@@ -67,7 +67,7 @@ public enum TeleportMethod implements Validatable {
             GLORY_FILTER = isNotNoted.combine(Filters.Items.nameContains("Glory").combine(Filters.Items.nameContains("("), true).combine(Filters.Items.nameNotContains("(t)"), false),false),
             GAMES_FILTER = isNotNoted.combine(Filters.Items.nameContains("Games").combine(Filters.Items.nameContains("("), true),false),
             DUELING_FILTER = isNotNoted.combine(Filters.Items.nameContains("dueling").combine(Filters.Items.nameContains("("), true),false),
-            COMBAT_FILTER = isNotNoted.combine(Filters.Items.nameContains("Combat").combine(Filters.Items.nameContains("("), true),false),
+            COMBAT_FILTER = isNotNoted.combine(Filters.Items.nameContains("Combat b").combine(Filters.Items.nameContains("("), true),false),
             SKILLS_FILTER = isNotNoted.combine(Filters.Items.nameContains("Skills necklace").combine(Filters.Items.nameContains("("), true),false),
             WEALTH_FILTER = isNotNoted.combine(Filters.Items.nameContains("Ring of wealth").combine(Filters.Items.nameContains("("), true),false)
     ;
