@@ -490,23 +490,25 @@ public class NavigationSpecialCase implements Loggable{
                 break;
 
             case HAM_OUTSIDE:
+                if (clickObject(Filters.Objects.nameEquals("Ladder"), "Climb-up", () -> Player.getPosition().getY() < 4000 ?
+                        WaitFor.Return.SUCCESS : WaitFor.Return.IGNORE)) {
+                    return true;
+                }
+                break;
+                
             case HAM_INSIDE:
                 if (RSObjectHelper.exists(Filters.Objects.actionsContains("Pick-Lock"))){
-                    System.out.println("adsads");
                     if (InteractionHelper.click(RSObjectHelper.get(Filters.Objects.actionsContains("Pick-Lock")), "Pick-Lock")){
                         WaitFor.condition(WaitFor.random(6000, 9000), () -> !RSObjectHelper.exists(Filters.Objects.actionsContains("Pick-Lock")) ? WaitFor.Return.SUCCESS : WaitFor.Return.IGNORE);
                         return true;
                     }
                 } else {
-                    System.out.println("aaaaaaaa");
                     if (InteractionHelper.click(RSObjectHelper.get(Filters.Objects.actionsContains("Climb-down")), "Climb-down")){
                         WaitFor.condition(3000, () -> HAM_INSIDE.getRSTile().distanceTo(Player.getPosition()) < 10 ? WaitFor.Return.SUCCESS : WaitFor.Return.IGNORE);
                         return true;
                     }
                 }
                 break;
-
-
         }
 
         if (zeahBoatLocation != null){
